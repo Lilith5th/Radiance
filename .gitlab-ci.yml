@@ -103,9 +103,7 @@ test:mac:clang:
     - build:mac:clang
   script:
     - cd build
-    - cd resources
-    - ruby test_lib.rb -c
-    - ruby test_lib.rb
+    - ctest
 
 test:ubuntu:
   stage: test
@@ -115,9 +113,7 @@ test:ubuntu:
     - build:ubuntu
   script:
     - cd build
-    - cd resources
-    - ruby test_lib.rb -c
-    - ruby test_lib.rb
+    - ctest
 
 test:windows:
   stage: test
@@ -127,9 +123,7 @@ test:windows:
     - build:windows
   script:
     - cd build
-    - cd resources
-    - ruby test_lib.rb -c
-    - ruby test_lib.rb
+    - '"C:\Program Files\CMake\bin\ctest.exe"'
 
 package:mac:
   stage: package
