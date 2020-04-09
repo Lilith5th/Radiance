@@ -27,9 +27,11 @@ enable_testing()
 include(CTest)
 
 option(BUILD_SHARED_LIBS "Build radiance using shared libraries?" OFF)
+option(BUILD_LIBRARY "Build RVU as a DLL?" OFF)
 option(BUILD_HEADLESS "Build radiance without any GUI components?" OFF)
 option(BUILD_PABOPTO_UTILS "Build PABOpto Utilities?" OFF)
 option(BUILD_LIBTIFF "Build libtiff?" OFF)
+
 
 if(NOT WIN32)
   set(CPACK_INCLUDE_TOPLEVEL_DIRECTORY 1)
@@ -150,10 +152,6 @@ add_subdirectory(resources)
 install(DIRECTORY "${CMAKE_BINARY_DIR}/lib/"
   DESTINATION "lib"
 )
-
-# copy make tests to build
-file(COPY test DESTINATION ${CMAKE_BINARY_DIR})
-
 
 include(InstallRequiredSystemLibraries)
 add_subdirectory(InstallRules)
